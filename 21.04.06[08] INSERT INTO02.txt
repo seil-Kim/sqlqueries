@@ -1,0 +1,5 @@
+USE test01
+GO
+
+INSERT INTO customer
+VALUES( NULL, '2222', 'lee', '010', '4324324', 1979, 'Seoul')
