@@ -1,0 +1,3 @@
+
+ALTER TABLE memberTest
+ALTER COLUMN name varchar(30)
