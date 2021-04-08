@@ -1,0 +1,45 @@
+USE MagicCorp
+GO
+
+CREATE UNIQUE INDEX idx_dname_unique
+ON DEPARTMENT(dname)
+
+
+USE MagicCorp
+GO
+
+CREATE INDEX idx_loc
+ON DEPARTMENT(loc)
+
+
+USE MagicCorp
+GO
+
+CREATE INDEX idx_dnosalary
+ON EMPLOYEE(dno, salary)
+
+
+USE MagicCorp
+GO
+
+CREATE INDEX idx_dnosalary_desc
+ON EMPLOYEE(dno asc, salary desc)
+
+
+USE MagicCorp
+GO
+
+SELECT * FROM EMPLOYEE WHERE ENAME = 'e1'
+
+
+USE MagicCorp
+GO
+
+CREATE INDEX emp_name_idx
+ON EMPLOYEE(ename)
+
+
+USE MagicCorp
+GO
+
+SELECT * FROM EMPLOYEE WITH(INDEX = emp_name_idx) WHERE ENAME = 'e1'
