@@ -1,0 +1,35 @@
+USE test01
+GO
+
+CREATE PROCEDURE emp_pro_para
+@enumber int
+AS
+SELECT *
+FROM PRODUCT
+WHERE PNO = @enumber
+
+GO
+
+EXEC emp_pro_para 101
+
+EXEC emp_pro_para 202
+
+
+
+USE test01
+GO
+
+CREATE PROC emp_out_put_param
+@did int,
+@avg_price int OUTPUT
+AS
+SELECT @avg_price = AVG(price)
+FROM PRODUCT
+WHERE PRODUCT.PNO = @did
+GO
+
+DECLARE @AVG_PRICE INT
+
+EXEC emp_out_put_param 101, @AVG_PRICE OUTPUT
+
+SELECT @AVG_PRICE
