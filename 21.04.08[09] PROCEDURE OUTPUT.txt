@@ -1,0 +1,17 @@
+USE MagicCorp
+GO
+
+CREATE PROC emp_out_put_para
+@did int,
+@avg_sal int OUTPUT
+AS
+SELECT @avg_sal = AVG(SALARY)
+FROM EMPLOYEE
+WHERE EMPLOYEE.DNO = @did
+GO
+
+DECLARE @AVG_SALY INT
+
+EXEC emp_out_put_para 30, @AVG_SALY OUTPUT
+
+SELECT @AVG_SALY
