@@ -1,0 +1,50 @@
+USE MagicCorp
+GO
+
+CREATE FUNCTION MAX_SAL
+(@param int)
+RETURNS int
+AS
+BEGIN
+DECLARE @MAX_VAL int
+
+SELECT @MAX_VAL = MAX(salary)
+FROM EMPLOYEE
+WHERE DNO = @param
+
+RETURN @MAX_VAL
+END
+
+GO
+
+SELECT *
+FROM EMPLOYEE
+WHERE SALARY = dbo.MAX_SAL(30)
+
+
+
+USE MagicCorp
+GO
+
+CREATE FUNCTION EMP_DEPT
+(@param int)
+RETURNS @emp_dept_table TABLE(
+	emp_id int,
+	emp_name varchar(20)
+)
+AS
+
+BEGIN
+
+INSERT INTO @emp_dept_table
+SELECT EMPLOYEE.ENO, EMPLOYEE.ENAME
+FROM EMPLOYEE
+WHERE DNO = @param
+
+RETURN
+END
+GO
+
+
+SELECT *
+FROM dbo.EMP_DEPT(20)
